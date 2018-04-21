@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gxnu.research.mapper.ResearchResultMapper">
+    <select id="findResearchResultByTitle" parameterType="ResearchResult" resultType="ResearchResult">
+        SELECT * from researchitem where title=#{title} 
+    </select>
+    <select id="findResearchResult" parameterType="ResearchResult" resultType="ResearchResult">
+        SELECT * from researchitem where 1 = 1
+        <if test="title!=null and title!=''">
+        	title=#{title} 
+        </if>
+        
+    </select>
+   <select id="findResearchResultByPage" parameterType="java.util.Map" resultType="ResearchResult">
+        SELECT * from researchitem where  1=1 
+        <if test="title!=null and title!=''">
+        and	title like "%"#{title}"%"
+        	
+        </if>
+        order by pulishDate desc
+        limit #{begin},#{end}
+    </select>
+     <select id="findResearchResultById" parameterType="java.lang.Integer" resultType="ResearchResult">
+        SELECT * from researchitem where  id=#{id}
+    </select>
+      <select id="countResearchResultByTitle" parameterType="ResearchResult" resultType="java.lang.Integer">
+        SELECT count(*) from researchitem where  1=1 
+        <if test="title!=null and title!=''">
+        	and title like "%"#{title}"%"
+        </if>
+       
+    </select>
+    <insert id="saveResearchResult" parameterType="ResearchResult">
+    	insert into researchitem(title,participant,no,type,pulishDate,grade,imageUrl,workload,reward)
+    	values(#{title},#{participant},#{no},#{type},#{pulishDate},#{grade},#{imageUrl},#{workload},#{reward});
+    </insert>
+    <delete id="removeResearchResultByIds">
+    	delete from researchitem where id in 
+    	<foreach item="item" index="index" collection="list" 
+			open="(" separator="," close=")">
+			#{item}
+		</foreach>
+    </delete>
+    <update id="updateResearchResult">
+    	update researchitem set participant=#{participant},no=#{no},title=#{title},type=#{type},
+    	pulishDate=#{pulishDate},grade=#{grade},imageUrl=#{imageUrl},workload=#{workload},reward=#{reward}
+    	where id =#{id}
+    </update>
+</mapper>
+

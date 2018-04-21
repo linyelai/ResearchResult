@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+.researchLable
+{
+	width:100px;
+	display:block;
+	float:left;
+	margin-top:10px;
+}
+.researchInput
+{
+	width:120px;
+	display:block;
+	float:left;
+	margin-top:10px;
+}
+.clearStyle
+{
+	clear:both;
+	
+	
+}
+.alignCenter
+{
+	margin-left: 300px;
+	margin-top:50px;
+	margin-right: auto;
+}

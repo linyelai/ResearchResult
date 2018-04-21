@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gxnu.research.mapper.UserInfoMapper">
+    <select id="findUser" parameterType="UserInfo" resultType="UserInfo">
+        SELECT * from userInfo where username=#{username} 
+        <if test="password!=null">
+         	and password = #{password}
+        </if>
+    </select>
+    
+    <select id="findUserByPage" parameterType="java.util.Map" resultType="UserInfo">
+        SELECT * from userInfo where 1=1 
+        <if test="username!=null">
+       		and  username like "%"#{username}"%"
+        </if>
+        limit #{begin},#{end}
+        
+    </select>
+    
+    <select id="findUserByName" parameterType="java.util.Map" resultType="UserInfo">
+        SELECT * from userInfo where 1=1  
+		<if test="username!=null">
+       		and  username like "%"${username}"%"
+        </if>
+    </select>
+     <select id="findUserById" parameterType="java.lang.Integer" resultType="UserInfo">
+        SELECT * from userInfo where id = #{id} 
+		
+    </select>
+    
+    <insert id="saveUser" parameterType="UserInfo" >
+     insert into userInfo(username,password,type)values(#{username},#{password},#{type});
+    </insert>
+    
+    <delete id="removeUser" parameterType="java.lang.Integer" >
+    	delete from userInfo where id = #{id};
+    </delete>
+    
+      <delete id="removeUsers"  >
+    	delete from userInfo where username  in 
+		<foreach item="item" index="index" collection="list" 
+			open="(" separator="," close=")">
+			#{item}
+		</foreach>
+    </delete>
+    
+    <update id="updateUser">
+    	update userInfo  set password=#{password},enable=#{enable},type=#{type} where id =#{id}
+    </update>
+</mapper>
+

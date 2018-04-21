@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gxnu.research.mapper.TeacherInfoMapper">
+    <select id="findTeacherInfoByName" parameterType="TeacherInfo" resultType="TeacherInfo">
+        SELECT * from teacherInfo where name=#{name} 
+    </select>
+     <select id="findAllTeacher"  resultType="TeacherInfo">
+        SELECT * from teacherInfo where 1=1;
+    </select>
+   <select id="findTeacherInfoByPage" parameterType="java.util.Map" resultType="TeacherInfo">
+        SELECT * from teacherInfo where  1=1 
+        <if test="name!=null and name!=''">
+        	and name like "%"#{name}"%"
+        </if>
+        limit #{begin},#{end}
+    </select>
+     <select id="findTeacherInfoById" parameterType="TeacherInfo" resultType="TeacherInfo">
+        SELECT * from teacherInfo where  id=#{id}
+    </select>
+     <select id="findTeacherInfoByJobNum" parameterType="java.lang.String" resultType="TeacherInfo">
+        SELECT * from teacherInfo where  jobNum=#{jobNum}
+    </select>
+      <select id="countTeacherInfoByName" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT count(*) from teacherInfo where  1=1 
+        <if test="name!=null and name!=''">
+        	and name=#{name} 
+        </if>
+        
+    </select>
+    <insert id="saveTeacherInfo" parameterType="TeacherInfo">
+    	insert into teacherInfo(name,jobNum,gender,birthday,degree,rank,position,idCardNum,academic)
+    	values(#{name},#{jobNum},#{gender},#{birthday},#{degree},#{rank},#{position},#{idCardNum},#{academic})
+    </insert>
+    <delete id="removeTeacherInfo" parameterType="TeacherInfo">
+    	delete from teacherInfo where jobNum in 
+    	<foreach item="item" index="index" collection="list" 
+			open="(" separator="," close=")">
+			#{item}
+		</foreach>
+    </delete>
+    <update id="updateTeacherInfo" parameterType="TeacherInfo">
+    	update teacherInfo set name=#{name},jobNum=#{jobNum},gender=#{gender},birthday=#{birthday},
+    	degree=#{degree},rank=#{rank},position=#{position},idCardNum=#{idCardNum},academic=#{academic}
+    	where id =#{id}
+    </update>
+    
+  
+</mapper>
+

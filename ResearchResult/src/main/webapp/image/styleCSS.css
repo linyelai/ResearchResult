@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* 后台样式表 */
+body {margin: 0;padding:0; background:#f3f3f3; color: #333333; font-size: 14px;font-family: "微软雅黑";}
+ul,li,ol,span,em{list-style-type: none; padding: 0;margin:0 auto;}
+.clear{clear: both;}
+img{border:0px;}
+a{text-decoration: none; display:block;}
+a:hover{color:#FC5B07;}
+
+/********** 登录页面 开始 ***********/
+.indexnav{min-width:1600px; margin:0 auto; background:url(ht_bg.png) no-repeat; background-size:100%; height:630px; text-align:center;}
+.mainnav{width:510px; height:310px; margin:0 auto; background:url(ht_dl_bg.png) bottom center no-repeat; padding-top:150px;}
+.mainnav .logo{margin:0 auto;}
+.mainnav .nav{width:300px; height:229px; float:right; margin-top:30px; padding-top:40px;}
+.mainnav .nav_l{height:120px; text-align:left; float:left;}
+.mainnav .nav_l li{height:40px; line-height:45px;}
+.mainnav .nav_r{height:200px; float:left;}
+.mainnav .nav_r li{height:25px; line-height:25px; margin-top:6px; margin-bottom:15px;}
+.mainnav .nav_r li .txt1{width:180px; height:25px; line-height:25px; margin-left:10px; float:left;}
+.mainnav .nav_r li .txt2{width:75px; height:25px; line-height:25px; margin-left:10px; float:left;}
+.mainnav .nav_r li.text{width:80px; height:32px; float:left;}
+.mainnav .nav_r li.text a{line-height:32px; color:#ff6600; display:block;}
+.mainnav .nav_r li.text a:hover{text-decoration:underline;}
+.mainnav .nav_r li.text1{width:92px; height:32px; line-height:25px; float:right;}
+.mainnav .nav_r li.text1 .Btn{width:92px; height:32px; line-height:28px; float:right; background:url(ht_dlBtn.png) no-repeat; color:#fff; display:block; cursor:pointer;}
+
+.code{background:#ccc; font-family:Arial; font-style:italic; color:#006EC3; font-size:18px; border:0; letter-spacing:3px; font-weight:bolder; float:right; cursor:pointer; width:92px; height:30px;line-height:30px; text-align:center; vertical-align:middle; box-sizing:border-box; display:block;}
+
+.footer{color:#fff; margin:50px auto;}
+
+
+
+/********** 后台首页 开始 ***********/
+.nav{width:100%; height:100%;}
+.nav .navTop{width:100%; height:100px; background:url(ht_top.jpg) no-repeat; background-size:100%;}
+.nav .navTop .logo{height:100px; line-height:100px; font-family:"宋体"; font-size:36px; color:#FFFFFF; text-indent:5px; float:left; padding-left:30px; font-weight:bold; white-space:nowrap;}
+.nav .navTop .welcome{width:500px; height:100px; line-height:100px; font-size:18px; color:#FFFFFF; float:right; padding-right:20px; text-align:right; white-space:nowrap;}
+.nav .navTop .welcome span{line-height:100px; font-size:18px; color:#FFFFFF;}
+
+.nav .navBody{width:100%; height:100%;}
+.nav .navBody .Bleft{width:233px; height:100%; float:left; background:url(ht_left.jpg) no-repeat; background-size:100%; padding-bottom:30px;}
+.nav .navBody .Bleft_top{width:233px; height:220px; margin:0 auto;}
+.nav .navBody .Bleft_top .photo{width:130px; height:130px; margin:30px auto 10px; border:solid 5px #3a74af; background-color:#5a9ee3; border-radius:100%; overflow:hidden; bottom:0px;}
+.nav .navBody .Bleft_top .photo img{bottom:0px; margin:0 auto;}
+.nav .navBody .Bleft_top .topTxt{width:233px; line-height:32px; text-align:center; color:#FFFFFF; font-size:16px;}
+.nav .navBody .Bleft_top .topTxt span{width:233px; height:32px; line-height:32px; text-align:center; color:#FFFFFF; font-size:20px;}
+.nav .navBody .Bleft_menus{width:233px; height:100%; margin:0 auto; padding-bottom:30px; padding-top:30px;}
+.nav .navBody .Bleft_menus ul{width:233px; height:100%; margin:0 auto;}
+.nav .navBody .Bleft_menus ul li{width:233px; height:45px; padding:20px 0 20px 0;}
+.nav .navBody .Bleft_menus ul li .menuTxt{width:233px; height:45px; text-align:center; display:block;}
+.nav .navBody .Bleft_menus ul li .menuTxt span{width:21px; height:45px; line-height:45px; float:left; margin-left:50px;}
+.nav .navBody .Bleft_menus ul li .menuTxt .text{width:80px; height:45px;line-height:45px; font-size:20px; color:#FFFFFF; float:left; margin-left:30px; display:block;}
+.nav .navBody .Bleft_menus ul li .menuTxt .text:hover{color:#FC5B07;}
+
+.nav .navBody .Bright{width:87%; height:100%; float:right;}
+.nav .navBody .Bright_top{height:45px; margin:0 auto; background-color:#e9e9e9;}
+.nav .navBody .Bright_top .ltxt{width:300px; height:45px; line-height:45px; color:#333; text-align:left; padding-left:30px; font-size:20px; float:left;}
+.nav .navBody .Bright_top .rdata{width:300px; height:45px; line-height:45px; color:#333; text-align:right; padding-right:30px; font-size:16px; float:right;}
+.nav .navBody .Bright_main{width:100%; height:100%; margin:0 auto; padding-top:20px; background-color:#fff; padding-left:10px;}
+

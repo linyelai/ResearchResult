@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+    <!DOCTYPE configuration  
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- changes from the defaults -->
+        <setting name="lazyLoadingEnabled" value="false" />
+    </settings>
+    <typeAliases>
+        <!--这里给实体类取别名，方便在mapper配置文件中使用 -->
+        <typeAlias alias="UserInfo" type="cn.gxnu.research.model.UserInfo" />
+        <typeAlias alias="ResearchResult" type="cn.gxnu.research.model.ResearchResult" />
+        <typeAlias alias="ResearchReport" type="cn.gxnu.research.model.ResearchReport" />
+        <typeAlias alias="TeacherInfo" type="cn.gxnu.research.model.TeacherInfo" />
+    </typeAliases>
+    <!--这里添加的是执行CRUD操作的接口对应的配置文件(xml文件) -->
+    <mappers>
+        <mapper resource="cn/gxnu/research/mapper/UserInfoMapper.xml" />
+        <mapper resource="cn/gxnu/research/mapper/ResearchResultMapper.xml" />
+        <mapper resource="cn/gxnu/research/mapper/ResearchReportMapper.xml" />
+        <mapper resource="cn/gxnu/research/mapper/TeacherInfoMapper.xml" />
+    </mappers>
+</configuration>

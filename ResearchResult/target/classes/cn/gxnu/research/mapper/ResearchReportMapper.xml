@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gxnu.research.mapper.ResearchReportMapper">
+    <select id="findResearchReportByTitle" parameterType="ResearchReport" resultType="ResearchReport">
+        SELECT * from researchitemReport where title=#{title} 
+    </select>
+   <select id="findResearchReportByPage" parameterType="java.util.Map" resultType="ResearchReport">
+        SELECT * from researchitemReport where  1=1 
+        <if test="title!=null and title!=''">
+        	and title like "%"#{title}"%"
+        </if>
+        order by submitDate desc
+        limit #{begin},#{end}
+        
+    </select>
+     <select id="findResearchReportById" parameterType="ResearchReport" resultType="ResearchReport">
+        SELECT * from researchitemReport where  id=#{id}
+    </select>
+      <select id="countResearchReportByTitle" parameterType="java.util.Map" resultType="java.lang.Integer">
+        SELECT count(*) from researchitemReport where  1=1 
+        <if test="title!=null and title!=''">
+        	and title like "%"#{title}"%"
+        </if>
+       
+    </select>
+    <insert id="saveResearchReport">
+    	insert into researchitemReport(title,content,author,submitDate,source,imgPath)
+    	values(#{title},#{content},#{author},#{submitDate},#{source},#{imgPath});
+    </insert>
+    <delete id="removeResearchReportByIds">
+    	delete from researchitemReport where id in 
+    	<foreach item="item" index="index" collection="list" 
+			open="(" separator="," close=")">
+			#{item}
+		</foreach>
+    </delete>
+    <update id="updateResearchReport">
+    	update researchitemReport set title=#{title},content=#{content},author=#{author},submitDate=#{submitDate},
+    	source=#{source},imgPath=#{imgPath}
+    	where id =#{id}
+    </update>
+</mapper>
+
